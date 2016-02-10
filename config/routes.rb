@@ -1,4 +1,36 @@
-Rails.application.routes.draw do
+
+
+  Rails.application.routes.draw do
+  resources :restaurants do
+    resources :reviews, only: [:new, :create]
+  end
+end
+
+# app/controllers/reviews_controller.rb
+# class ReviewsController < ApplicationController
+#   before_action :find_restaurant, only: [ :new, :create ]
+
+#   def new
+#     @review = Review.new
+#   end
+
+#   def create
+#     @review = @restaurant.reviews.build(review_params)
+#     @review.save
+#   end
+
+#   private
+
+#   def review_params
+#     params.require(:review).permit(:content)
+#   end
+#   def find_restaurant
+#     @restaurant = Restaurant.find(params[:restaurant_id])
+#   end
+# end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +85,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+

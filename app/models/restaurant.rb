@@ -1,8 +1,8 @@
 class Restaurant < ActiveRecord::Base
+  CATEGORIES = ["chinese", "italian", "french", "korean","japanese", "american", "belgian"]
   has_many :reviews , dependent: :destroy
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :phone_number, presence: true
-  validates :category, inclusion: {in: ["chinese", "italian", "french", "korean","japanese", "american", "belgian"], message: "%(value) is not a valid category"}
+  validates :name, :presence => { :message => " cannot be blank" }
+  validates :address, :presence => { :message => " cannot be blank" }
+  validates :category, inclusion: {in: Restaurant::CATEGORIES }
 end
 

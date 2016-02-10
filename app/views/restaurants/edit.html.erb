@@ -1,0 +1,11 @@
+<h1> Modify information about a restaurant </h1>h
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :category, collection: Restaurant::CATEGORIES, prompt: "Categorie" %>
+  <%= f.button :submit %>
+<% end %>
+
