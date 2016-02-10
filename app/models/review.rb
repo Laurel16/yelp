@@ -1,5 +1,7 @@
 class Review < ActiveRecord::Base
   belongs_to :restaurant
-  validates: :content, presence:true
-  validates: :rating, inclusion: {in:(O..5), message: "Choose a rating between 0 & 5"}
+  validates :content,:presence => { :message => " cannot be blank" }
+  validates :rating, :inclusion => { :in => 0..5, :message => " should be between 0 to 5" }
+  validates :rating, :numericality => { :message => " should be a number" }
+  validates :rating, :presence => { :message => " cannot be blank" }
 end

@@ -1,7 +1,5 @@
 class ChangeColumnPhoneNumberInRestaurants < ActiveRecord::Migration
   def change
-    change_table :restaurants do |t|
-      t.change :phone_number, :string
-    end
+    change_column :restaurants, :phone_number,  :string
   end
 end
